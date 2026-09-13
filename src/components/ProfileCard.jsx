@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { UserRound } from 'lucide-react';
 
-export default function ProfileCard({ name, designation, department, photoLabel = 'Photo', imageSrc }) {
+export default function ProfileCard({ name, designation, department, batch, photoLabel = 'Photo', imageSrc }) {
   const [imageFailed, setImageFailed] = useState(false);
 
   return (
@@ -13,6 +13,7 @@ export default function ProfileCard({ name, designation, department, photoLabel 
         <h3>{name}</h3>
         <p className="profile-designation">{designation}</p>
         {department && <p className="profile-department">{department}</p>}
+        {batch && <p className="profile-batch">Batch: {batch}</p>}
       </div>
     </article>
   );
