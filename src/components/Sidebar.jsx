@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Brain, Home, NotebookTabs, CircleDashed, Network, BarChart3, LineChart, Target, Info, ChevronLeft, ChevronRight, Sparkles, Menu, X } from 'lucide-react';
+import { Brain, Home, NotebookTabs, CircleDashed, Network, BarChart3, LineChart, Target, Info, ChevronLeft, ChevronRight, Sparkles, Menu, X, Layers3, Workflow, Users } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const navItems = [
@@ -12,6 +12,9 @@ const navItems = [
   { label: 'VC Dimension', path: '/vc-dimension', icon: BarChart3 },
   { label: 'RBF Network', path: '/rbf-network', icon: Network },
   { label: 'Perceptron', path: '/perceptron', icon: Sparkles },
+  { label: 'Multi-Layer Perceptron', path: '/mlp', icon: Layers3 },
+  { label: 'Mini Application', path: '/mini-application', icon: Workflow },
+  { label: 'Laboratory Team', path: '/laboratory-team', icon: Users },
   { label: 'About Laboratory', path: '/about', icon: Info },
 ];
 

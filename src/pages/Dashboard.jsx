@@ -6,8 +6,8 @@ import PageHeader from '../components/PageHeader';
 import { practicals } from '../data/practicals';
 
 const stats = [
-  { label: 'Total Practicals', value: 8, icon: BookOpen, accent: '#8b5cf6' },
-  { label: 'Interactive Modules', value: 8, icon: BrainCircuit, accent: '#1ea5ff' },
+  { label: 'Total Practicals', value: 10, icon: BookOpen, accent: '#8b5cf6' },
+  { label: 'Interactive Modules', value: 10, icon: BrainCircuit, accent: '#1ea5ff' },
   { label: 'Learning Categories', value: 3, icon: Gauge, accent: '#70e1ff' },
   { label: 'ML Algorithms', value: '10+', icon: BarChart3, accent: '#3ddc97' },
 ];
@@ -46,11 +46,11 @@ export default function Dashboard() {
       <section className="section-block" style={{ marginTop: '22px' }}>
         <div className="section-head">
           <h3>Practical Laboratory</h3>
-          <span className="status-badge purple">8 modules</span>
+          <span className="status-badge purple">10 modules</span>
         </div>
         <div className="practical-grid">
           {practicals.map((item, index) => {
-            const icons = [BookOpen, Target, BrainCircuit, BarChart3, Sparkles, Gauge, Network, BrainCircuit];
+            const icons = [BookOpen, Target, BrainCircuit, BarChart3, Target, Gauge, Network, Sparkles, BrainCircuit, Network];
             const Icon = icons[index];
             return (
               <PracticalCard

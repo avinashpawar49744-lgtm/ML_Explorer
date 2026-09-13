@@ -9,6 +9,9 @@ import KNN from './pages/KNN';
 import VCDimension from './pages/VCDimension';
 import RBFNetwork from './pages/RBFNetwork';
 import Perceptron from './pages/Perceptron';
+import MLP from './pages/MLP';
+import MiniApplication from './pages/MiniApplication';
+import LaboratoryTeam from './pages/LaboratoryTeam';
 import About from './pages/About';
 import Layout from './components/Layout';
 
@@ -40,6 +43,9 @@ function AppShell() {
         <Route path="/vc-dimension" element={<VCDimension />} />
         <Route path="/rbf-network" element={<RBFNetwork />} />
         <Route path="/perceptron" element={<Perceptron />} />
+        <Route path="/mlp" element={<MLP />} />
+        <Route path="/mini-application" element={<MiniApplication />} />
+        <Route path="/laboratory-team" element={<LaboratoryTeam />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

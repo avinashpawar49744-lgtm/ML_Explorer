@@ -1,6 +1,6 @@
 import PageHeader from '../components/PageHeader';
 
-const technologies = ['React.js', 'JavaScript', 'Vite', 'CSS', 'Machine Learning'];
+const technologies = ['React.js', 'JavaScript', 'Vite', 'CSS', 'Recharts', 'Machine Learning'];
 const timeline = [
   'Learning Types: Core theory and problem framing',
   'Candidate Elimination: Querying and version space reduction',
@@ -10,6 +10,8 @@ const timeline = [
   'VC Dimension: capacity and sample complexity',
   'RBF Network: basis functions and local response',
   'Perceptron: linear threshold learning',
+  'Multi-Layer Perceptron: backpropagation and XOR learning',
+  'Mini Application: end-to-end ML workflow',
 ];
 
 export default function About() {

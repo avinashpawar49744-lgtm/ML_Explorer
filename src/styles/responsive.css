@@ -2,4 +2,10 @@
 
 @media (max-width: 768px) {
   .desktop-only { display: none; }
+
+  .team-grid { grid-template-columns: 1fr; }
+  .app-footer { flex-direction: column; margin-left: 6px; margin-right: 6px; }
+  .app-footer div:last-child { text-align: left; }
+  .network-layers { gap: 5px; }
+  .pipeline-step { flex: 1 1 42%; justify-content: flex-start; }
 }

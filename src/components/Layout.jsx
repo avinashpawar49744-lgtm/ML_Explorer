@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import Footer from './Footer';
 
 export default function Layout({ children, theme, setTheme }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -22,6 +23,9 @@ export default function Layout({ children, theme, setTheme }) {
     '/vc-dimension': { title: 'VC Dimension & Sample Complexity', subtitle: 'Capacity of hypothesis classes' },
     '/rbf-network': { title: 'Radial Basis Function Network', subtitle: 'Local activation and center learning' },
     '/perceptron': { title: 'Perceptron & Linear Threshold Neuron', subtitle: 'Simple binary classification' },
+    '/mlp': { title: 'Multi-Layer Perceptron', subtitle: 'Neural network learning with backpropagation' },
+    '/mini-application': { title: 'ML Mini Application', subtitle: 'Complete machine learning workflow' },
+    '/laboratory-team': { title: 'Laboratory Team', subtitle: 'Guidance, coordination and student work' },
     '/about': { title: 'About ML Explorer', subtitle: 'Project overview and learning journey' },
   };
 
@@ -39,6 +43,7 @@ export default function Layout({ children, theme, setTheme }) {
           onMenuClick={() => setMobileOpen((prev) => !prev)}
         />
         <main className="page-shell">{children}</main>
+        <Footer />
       </div>
     </div>
   );
