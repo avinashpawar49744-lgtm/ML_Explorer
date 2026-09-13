@@ -21,6 +21,10 @@ import Profile from './pages/Profile';
 import ExperimentHistory from './pages/ExperimentHistory';
 import Submissions from './pages/Submissions';
 import Admin from './pages/Admin';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminManagement from './pages/AdminManagement';
+import AdminPracticalEditor from './pages/AdminPracticalEditor';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -47,6 +51,7 @@ function AppShell() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/learning-types" element={<LearningTypes />} />
         <Route path="/candidate-elimination" element={<CandidateElimination />} />
@@ -66,11 +71,19 @@ function AppShell() {
           <Route path="/submissions" element={<Submissions />} />
         </Route>
         <Route element={<ProtectedRoute roles={['faculty', 'admin']} />}>
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/practicals" element={<Admin section="practicals" />} />
-          <Route path="/admin/students" element={<Admin section="students" />} />
-          <Route path="/admin/submissions" element={<Admin section="submissions" />} />
-          <Route path="/admin/datasets" element={<Admin section="datasets" />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/practicals" element={<AdminManagement section="practicals" />} />
+          <Route path="/admin/practicals/:id" element={<AdminPracticalEditor />} />
+          <Route path="/admin/students" element={<AdminManagement section="students" />} />
+          <Route path="/admin/faculty" element={<AdminManagement section="faculty" />} />
+          <Route path="/admin/team" element={<AdminManagement section="team" />} />
+          <Route path="/admin/datasets" element={<AdminManagement section="datasets" />} />
+          <Route path="/admin/experiments" element={<AdminManagement section="experiments" />} />
+          <Route path="/admin/submissions" element={<AdminManagement section="submissions" />} />
+          <Route path="/admin/about" element={<AdminManagement section="about" />} />
+          <Route path="/admin/settings" element={<AdminManagement section="settings" />} />
+          <Route path="/admin/activity" element={<AdminManagement section="activity" />} />
+          <Route path="/admin/profile" element={<Profile />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

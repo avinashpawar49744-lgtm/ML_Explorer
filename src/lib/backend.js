@@ -11,14 +11,17 @@ export async function getPracticals() {
 
 export async function getDashboardStats(userId) {
   if (!supabase || !userId) return unavailable();
-  const [practicals, progress, experiments, submissions] = await Promise.all([
+  const [practicals, students, faculty, experiments, progress, submissions, datasets] = await Promise.all([
     supabase.from('practicals').select('id', { count: 'exact', head: true }).eq('is_active', true),
-    supabase.from('student_progress').select('id', { count: 'exact', head: true }).eq('student_id', userId).eq('status', 'completed'),
-    supabase.from('experiment_sessions').select('id', { count: 'exact', head: true }).eq('user_id', userId),
-    supabase.from('practical_submissions').select('id', { count: 'exact', head: true }).eq('student_id', userId),
+    supabase.from('profiles').select('id', { count: 'exact', head: true }).eq('role', 'student'),
+    supabase.from('profiles').select('id', { count: 'exact', head: true }).eq('role', 'faculty'),
+    supabase.from('experiment_sessions').select('id', { count: 'exact', head: true }),
+    supabase.from('student_progress').select('id', { count: 'exact', head: true }).eq('status', 'completed'),
+    supabase.from('practical_submissions').select('id', { count: 'exact', head: true }).eq('status', 'submitted'),
+    supabase.from('datasets').select('id', { count: 'exact', head: true }).eq('is_public', true),
   ]);
-  const error = practicals.error || progress.error || experiments.error || submissions.error;
-  return { data: { practicals: practicals.count || 0, completed: progress.count || 0, experiments: experiments.count || 0, submissions: submissions.count || 0 }, error };
+  const error = [practicals, students, faculty, experiments, progress, submissions, datasets].find((result) => result.error)?.error;
+  return { data: { practicals: practicals.count || 0, students: students.count || 0, faculty: faculty.count || 0, completed: progress.count || 0, experiments: experiments.count || 0, submissions: submissions.count || 0, datasets: datasets.count || 0 }, error };
 }
 
 export async function saveExperiment({ userId, practicalId, datasetId, parameters, metrics, prediction, visualizationData, summary, status = 'completed' }) {

@@ -5,7 +5,7 @@ export default function ProtectedRoute({ roles }) {
   const { user, profile, loading } = useAuth();
   const location = useLocation();
   if (loading) return <div className="loading-state"><div className="spinner" /><span>Loading secure session...</span></div>;
-  if (!user) return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+  if (!user) return <Navigate to={roles?.includes('admin') ? '/admin/login' : '/login'} replace state={{ from: location.pathname }} />;
   if (roles && (!profile || !roles.includes(profile.role))) return <Navigate to="/" replace />;
   return <Outlet />;
 }

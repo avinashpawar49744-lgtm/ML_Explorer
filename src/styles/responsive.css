@@ -10,6 +10,16 @@
   .app-footer div:last-child { text-align: left; }
   .network-layers { gap: 5px; }
   .pipeline-step { flex: 1 1 42%; justify-content: flex-start; }
+  .admin-sidebar { position: fixed; inset: 0 auto 0 0; z-index: 80; transform: translateX(-105%); transition: transform 0.22s ease; box-shadow: var(--shadow); }
+  .admin-sidebar.open { transform: translateX(0); }
+  .admin-close, .admin-menu-button { display: inline-grid; place-items: center; }
+  .admin-brand .admin-close { margin-left: auto; }
+  .admin-menu-button { padding: 7px; }
+  .admin-content { padding: 18px 12px; }
+  .admin-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-dashboard-grid { grid-template-columns: 1fr; }
+  .admin-toolbar { align-items: stretch; flex-direction: column; }
+  .admin-search { max-width: none; }
 }
 
 @media (max-width: 480px) {
