@@ -1,0 +1,36 @@
+@import './styles/variables.css';
+@import './styles/layout.css';
+@import './styles/components.css';
+@import './styles/responsive.css';
+
+html, body, #root {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+#root {
+  display: block;
+}
+
+* {
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+}
