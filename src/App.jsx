@@ -44,9 +44,7 @@ function AppShell() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
-  return (
-    <Layout theme={theme} setTheme={setTheme}>
-      <Routes>
+  const routes = <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -86,9 +84,10 @@ function AppShell() {
           <Route path="/admin/profile" element={<Profile />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Layout>
-  );
+      </Routes>;
+
+  if (location.pathname.startsWith('/admin')) return routes;
+  return <Layout theme={theme} setTheme={setTheme}>{routes}</Layout>;
 }
 
 export default function App() {
