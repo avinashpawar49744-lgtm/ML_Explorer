@@ -13,6 +13,10 @@ import MLP from './pages/MLP';
 import MiniApplication from './pages/MiniApplication';
 import LaboratoryTeam from './pages/LaboratoryTeam';
 import About from './pages/About';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import Layout from './components/Layout';
 
 const THEME_KEY = 'ml-explorer-theme';
@@ -34,6 +38,10 @@ function AppShell() {
   return (
     <Layout theme={theme} setTheme={setTheme}>
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/learning-types" element={<LearningTypes />} />
         <Route path="/candidate-elimination" element={<CandidateElimination />} />
