@@ -18,7 +18,7 @@ import Layout from './components/Layout';
 const THEME_KEY = 'ml-explorer-theme';
 
 function AppShell() {
-  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || 'dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || 'light');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

@@ -1,17 +1,18 @@
+import { useState } from 'react';
 import { UserRound } from 'lucide-react';
 
-export default function ProfileCard({ name, designation, department, photoLabel = 'Photo', student = false, children }) {
+export default function ProfileCard({ name, designation, department, photoLabel = 'Photo', imageSrc }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
   return (
-    <article className={`profile-card ${student ? 'student-profile' : ''}`}>
+    <article className="profile-card">
       <div className="profile-avatar" aria-label={`${photoLabel} placeholder`}>
-        <UserRound size={42} />
-        <span>{photoLabel}</span>
+        {imageSrc && !imageFailed ? <img src={imageSrc} alt="" onError={() => setImageFailed(true)} /> : <><UserRound size={42} /><span>{photoLabel}</span></>}
       </div>
       <div className="profile-copy">
         <h3>{name}</h3>
         <p className="profile-designation">{designation}</p>
         {department && <p className="profile-department">{department}</p>}
-        {children}
       </div>
     </article>
   );
