@@ -17,7 +17,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Profile from './pages/Profile';
+import ExperimentHistory from './pages/ExperimentHistory';
+import Submissions from './pages/Submissions';
+import Admin from './pages/Admin';
 import Layout from './components/Layout';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const THEME_KEY = 'ml-explorer-theme';
 
@@ -55,6 +60,18 @@ function AppShell() {
         <Route path="/mini-application" element={<MiniApplication />} />
         <Route path="/laboratory-team" element={<LaboratoryTeam />} />
         <Route path="/about" element={<About />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/experiment-history" element={<ExperimentHistory />} />
+          <Route path="/submissions" element={<Submissions />} />
+        </Route>
+        <Route element={<ProtectedRoute roles={['faculty', 'admin']} />}>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/practicals" element={<Admin section="practicals" />} />
+          <Route path="/admin/students" element={<Admin section="students" />} />
+          <Route path="/admin/submissions" element={<Admin section="submissions" />} />
+          <Route path="/admin/datasets" element={<Admin section="datasets" />} />
+        </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>
